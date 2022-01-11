@@ -9,9 +9,9 @@ Date "2022-01-11"
 Rev "0.1"
 Comp "RetroBit Lab"
 Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Comment2 "package MCU from STMicroelectronics"
+Comment3 "Developer's Kit to use a full STM32F401 64QFP"
+Comment4 "This project is aiming to be a standard"
 $EndDescr
 Text GLabel 1105 1065 0    50   Input ~ 0
 VCC
