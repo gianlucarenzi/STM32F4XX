@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "GENERIC STM32F401 MODULE"
-Date "2022-01-10"
-Rev "0.0"
+Date "2022-01-11"
+Rev "0.1"
 Comp "RetroBit Lab"
 Comment1 ""
 Comment2 ""
@@ -52,7 +52,8 @@ P 2035 6130
 F 0 "U2" H 2080 6395 50  0000 C CNN
 F 1 "LM1117-3.3" H 2080 6295 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2035 6130 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm1117.pdf" H 2035 6130 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811131822_HTC-Korea-TAEJIN-Tech-LM1117S-3.3_C126027.pdf" H 2035 6130 50  0001 C CNN
+F 4 "C126027 " H 2035 6130 50  0001 C CNN "LCSC"
 	1    2035 6130
 	1    0    0    -1  
 $EndComp
@@ -71,39 +72,6 @@ Wire Wire Line
 	5210 2355 4590 2355
 Text Notes 4555 1930 0    50   ~ 0
 BOOT0 Boot from\ninternal FLASH
-$Comp
-L Device:C_Small C11
-U 1 1 65BF1254
-P 1370 6295
-F 0 "C11" H 1505 6375 50  0000 L CNN
-F 1 "100nF" H 1505 6275 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1370 6295 50  0001 C CNN
-F 3 "~" H 1370 6295 50  0001 C CNN
-	1    1370 6295
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C12
-U 1 1 65BF1645
-P 2985 6310
-F 0 "C12" H 3105 6405 50  0000 L CNN
-F 1 "100nF" H 3105 6305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 2985 6310 50  0001 C CNN
-F 3 "~" H 2985 6310 50  0001 C CNN
-	1    2985 6310
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP_Small C13
-U 1 1 65BF207C
-P 2450 6315
-F 0 "C13" H 2530 6400 50  0000 L CNN
-F 1 "20uF" H 2555 6315 50  0000 L CNN
-F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder" H 2450 6315 50  0001 C CNN
-F 3 "~" H 2450 6315 50  0001 C CNN
-	1    2450 6315
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2985 6410 2985 6445
 Wire Wire Line
@@ -146,7 +114,8 @@ P 5110 2555
 F 0 "C8" V 5000 2555 50  0000 C CNN
 F 1 "4.7uF" V 5035 2365 50  0000 C CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 5110 2555 50  0001 C CNN
-F 3 "~" H 5110 2555 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811110920_Samsung-Electro-Mechanics-CL31A475KOHNNNE_C7237.pdf" H 5110 2555 50  0001 C CNN
+F 4 "C7237 " V 5110 2555 50  0001 C CNN "LCSC"
 	1    5110 2555
 	0    1    1    0   
 $EndComp
@@ -188,7 +157,8 @@ P 4130 1945
 F 0 "R1" H 4200 2000 50  0000 L CNN
 F 1 "10K" H 4200 1900 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 4130 1945 50  0001 C CNN
-F 3 "~" H 4130 1945 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810301434_UNI-ROYAL-Uniroyal-Elec-1206W4F1002T5E_C17902.pdf" H 4130 1945 50  0001 C CNN
+F 4 "C17902" H 4130 1945 50  0001 C CNN "LCSC"
 	1    4130 1945
 	1    0    0    -1  
 $EndComp
@@ -197,17 +167,6 @@ Wire Wire Line
 Wire Wire Line
 	4130 2045 4130 2155
 Connection ~ 4130 2155
-$Comp
-L Device:C_Small C7
-U 1 1 65C0A99E
-P 4305 2360
-F 0 "C7" H 4340 2460 50  0000 L CNN
-F 1 "100nF" H 4315 2280 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4305 2360 50  0001 C CNN
-F 3 "~" H 4305 2360 50  0001 C CNN
-	1    4305 2360
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4305 2550 4130 2550
 Wire Wire Line
@@ -221,24 +180,14 @@ Connection ~ 4305 2155
 Wire Wire Line
 	4305 2155 4130 2155
 $Comp
-L Device:C_Small C5
-U 1 1 65C112A5
-P 1955 2235
-F 0 "C5" H 2075 2330 50  0000 L CNN
-F 1 "100nF" H 2075 2230 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1955 2235 50  0001 C CNN
-F 3 "~" H 1955 2235 50  0001 C CNN
-	1    1955 2235
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:CP_Small C6
 U 1 1 65C113DD
 P 1420 2240
 F 0 "C6" H 1500 2325 50  0000 L CNN
 F 1 "10uF" H 1525 2240 50  0000 L CNN
 F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-12_Kemet-S_Pad1.58x1.35mm_HandSolder" H 1420 2240 50  0001 C CNN
-F 3 "~" H 1420 2240 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811151641_Sunlord-TC212A106K016Y_C108529.pdf" H 1420 2240 50  0001 C CNN
+F 4 "C108529 " H 1420 2240 50  0001 C CNN "LCSC"
 	1    1420 2240
 	1    0    0    -1  
 $EndComp
@@ -278,15 +227,16 @@ P 1000 2055
 F 0 "FB1" V 755 2235 50  0000 C CNN
 F 1 "100uH" V 845 2255 50  0000 C CNN
 F 2 "Inductor_SMD:L_1206_3216Metric_Pad1.22x1.90mm_HandSolder" V 930 2055 50  0001 C CNN
-F 3 "~" H 1000 2055 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810311131_FH-Guangdong-Fenghua-Advanced-Tech-CMI321611J101KT_C128802.pdf" H 1000 2055 50  0001 C CNN
+F 4 "C128802" V 1000 2055 50  0001 C CNN "LCSC"
 	1    1000 2055
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR09
+L power:GND #PWR08
 U 1 1 65C245B1
 P 5525 1745
-F 0 "#PWR09" H 5525 1495 50  0001 C CNN
+F 0 "#PWR08" H 5525 1495 50  0001 C CNN
 F 1 "GND" H 5530 1520 50  0000 C CNN
 F 2 "" H 5525 1745 50  0001 C CNN
 F 3 "" H 5525 1745 50  0001 C CNN
@@ -338,7 +288,8 @@ P 1240 2370
 F 0 "R2" V 1155 2370 50  0000 C CNN
 F 1 "0R" V 1335 2370 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1240 2370 50  0001 C CNN
-F 3 "~" H 1240 2370 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1808281533_UNI-ROYAL-Uniroyal-Elec-1206W4F0000T5E_C17888.pdf" H 1240 2370 50  0001 C CNN
+F 4 "C17888" V 1240 2370 50  0001 C CNN "LCSC"
 	1    1240 2370
 	0    1    1    0   
 $EndComp
@@ -353,65 +304,25 @@ P 6355 1460
 F 0 "C1" H 6305 1620 50  0000 L CNN
 F 1 "100nF" H 6265 1230 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6355 1460 50  0001 C CNN
-F 3 "~" H 6355 1460 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 6355 1460 50  0001 C CNN
+F 4 "C24497" H 6355 1460 50  0001 C CNN "LCSC"
 	1    6355 1460
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C2
-U 1 1 65C3329E
-P 6700 1460
-F 0 "C2" H 6655 1620 50  0000 L CNN
-F 1 "100nF" H 6435 1385 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6700 1460 50  0001 C CNN
-F 3 "~" H 6700 1460 50  0001 C CNN
-	1    6700 1460
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C3
-U 1 1 65C334CD
-P 6965 1460
-F 0 "C3" H 6915 1635 50  0000 L CNN
-F 1 "100nF" H 6915 1235 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6965 1460 50  0001 C CNN
-F 3 "~" H 6965 1460 50  0001 C CNN
-	1    6965 1460
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C4
-U 1 1 65C33799
-P 7210 1460
-F 0 "C4" H 7160 1625 50  0000 L CNN
-F 1 "100nF" H 7235 1375 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 7210 1460 50  0001 C CNN
-F 3 "~" H 7210 1460 50  0001 C CNN
-	1    7210 1460
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	5810 1955 5810 1360
 Wire Wire Line
 	5810 1360 5910 1360
-Wire Wire Line
-	6355 1360 6700 1360
 Connection ~ 6355 1360
-Wire Wire Line
-	6700 1360 6965 1360
-Connection ~ 6700 1360
-Wire Wire Line
-	6965 1360 7210 1360
-Connection ~ 6965 1360
 $Comp
-L power:GND #PWR08
+L power:GND #PWR09
 U 1 1 65C39D3E
-P 6830 1625
-F 0 "#PWR08" H 6830 1375 50  0001 C CNN
-F 1 "GND" H 6835 1400 50  0000 C CNN
-F 2 "" H 6830 1625 50  0001 C CNN
-F 3 "" H 6830 1625 50  0001 C CNN
-	1    6830 1625
+P 6830 1765
+F 0 "#PWR09" H 6830 1515 50  0001 C CNN
+F 1 "GND" H 6835 1540 50  0000 C CNN
+F 2 "" H 6830 1765 50  0001 C CNN
+F 3 "" H 6830 1765 50  0001 C CNN
+	1    6830 1765
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -550,21 +461,11 @@ L Device:C_Small C9
 U 1 1 65C794FE
 P 3680 3255
 F 0 "C9" V 3570 3255 50  0000 C CNN
-F 1 "8pF" V 3605 3065 50  0000 C CNN
-F 2 "Capacitor_SMD:C_01005_0402Metric_Pad0.57x0.30mm_HandSolder" H 3680 3255 50  0001 C CNN
-F 3 "~" H 3680 3255 50  0001 C CNN
+F 1 "22pF" V 3605 3065 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 3680 3255 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811071223_FH-Guangdong-Fenghua-Advanced-Tech-1206CG220J500NT_C1896.pdf" H 3680 3255 50  0001 C CNN
+F 4 " C1896 " V 3680 3255 50  0001 C CNN "LCSC"
 	1    3680 3255
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C_Small C10
-U 1 1 65C79867
-P 3675 3540
-F 0 "C10" V 3565 3540 50  0000 C CNN
-F 1 "8pF" V 3600 3350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_01005_0402Metric_Pad0.57x0.30mm_HandSolder" H 3675 3540 50  0001 C CNN
-F 3 "~" H 3675 3540 50  0001 C CNN
-	1    3675 3540
 	0    1    1    0   
 $EndComp
 Wire Wire Line
@@ -650,7 +551,8 @@ P 3900 3425
 F 0 "Y1" V 3825 3525 50  0000 L CNN
 F 1 "8MHz" V 3925 3525 50  0000 L CNN
 F 2 "Crystal:Crystal_SMD_HC49-SD" H 3900 3425 50  0001 C CNN
-F 3 "~" H 3900 3425 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811132321_TAE-Zhejiang-Abel-Elec-TAXM8M2GLFBET2T_C107426.pdf" H 3900 3425 50  0001 C CNN
+F 4 "C107426" V 3900 3425 50  0001 C CNN "LCSC"
 	1    3900 3425
 	0    1    1    0   
 $EndComp
@@ -661,7 +563,8 @@ P 985 3825
 F 0 "J3" H 1055 4310 50  0000 C CNN
 F 1 "USB_B_Mini" H 1055 4210 50  0000 C CNN
 F 2 "Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal" H 1135 3775 50  0001 C CNN
-F 3 "~" H 1135 3775 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/2103081233_Jing-Extension-of-the-Electronic-Co.-920-462A2021S10100_C69074.pdf" H 1135 3775 50  0001 C CNN
+F 4 "C69074" H 985 3825 50  0001 C CNN "LCSC"
 	1    985  3825
 	1    0    0    -1  
 $EndComp
@@ -691,24 +594,14 @@ Wire Wire Line
 	885  4250 885  4280
 NoConn ~ 1285 4025
 $Comp
-L Device:R_Small R3
-U 1 1 65EDD04A
-P 1635 3825
-F 0 "R3" V 1550 3865 50  0000 C CNN
-F 1 "22R" V 1555 3700 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1635 3825 50  0001 C CNN
-F 3 "~" H 1635 3825 50  0001 C CNN
-	1    1635 3825
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:R_Small R4
 U 1 1 65EDDE35
 P 1635 3925
 F 0 "R4" V 1720 3960 50  0000 C CNN
 F 1 "22R" V 1720 3810 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1635 3925 50  0001 C CNN
-F 3 "~" H 1635 3925 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810192321_YAGEO-RC1206FR-0722RL_C114943.pdf" H 1635 3925 50  0001 C CNN
+F 4 "C114943" V 1635 3925 50  0001 C CNN "LCSC"
 	1    1635 3925
 	0    1    1    0   
 $EndComp
@@ -848,9 +741,10 @@ L MCU_ST_STM32F4:STM32F401RCTx U1
 U 1 1 659CE1DB
 P 5910 3655
 F 0 "U1" H 6370 5340 50  0000 C CNN
-F 1 "STM32F401RCTx" H 5845 4275 50  0000 C CNN
+F 1 "STM32F401RCT6" H 5845 4275 50  0000 C CNN
 F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 5310 1955 50  0001 R CNN
 F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00086815.pdf" H 5910 3655 50  0001 C CNN
+F 4 "C74524" H 5910 3655 50  0001 C CNN "LCSC"
 	1    5910 3655
 	1    0    0    -1  
 $EndComp
@@ -1338,9 +1232,10 @@ L Device:LED D1
 U 1 1 62180540
 P 3465 6280
 F 0 "D1" V 3520 6145 50  0000 R CNN
-F 1 "LED" V 3420 6145 50  0000 R CNN
+F 1 "RED" V 3420 6145 50  0000 R CNN
 F 2 "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3465 6280 50  0001 C CNN
-F 3 "~" H 3465 6280 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811151241_Everlight-Elec-15-21-R6C-FQ1R1B-2T_C93133.pdf" H 3465 6280 50  0001 C CNN
+F 4 "C93133" V 3465 6280 50  0001 C CNN "LCSC"
 	1    3465 6280
 	0    -1   -1   0   
 $EndComp
@@ -1351,7 +1246,8 @@ P 3465 6530
 F 0 "R5" H 3600 6580 50  0000 L CNN
 F 1 "330R" H 3545 6505 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 3465 6530 50  0001 C CNN
-F 3 "~" H 3465 6530 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811141443_Ever-Ohms-Tech-CR1206F330RP05Z_C245520.pdf" H 3465 6530 50  0001 C CNN
+F 4 "C245520 " H 3465 6530 50  0001 C CNN "LCSC"
 	1    3465 6530
 	1    0    0    -1  
 $EndComp
@@ -1478,6 +1374,147 @@ F 1 "GND" H 8490 1040 50  0000 C CNN
 F 2 "" H 8485 1265 50  0001 C CNN
 F 3 "" H 8485 1265 50  0001 C CNN
 	1    8485 1265
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6355 1360 6700 1360
+$Comp
+L Device:C_Small C2
+U 1 1 61DE3B47
+P 6700 1460
+F 0 "C2" H 6650 1620 50  0000 L CNN
+F 1 "100nF" H 6580 1230 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6700 1460 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 6700 1460 50  0001 C CNN
+F 4 "C24497" H 6700 1460 50  0001 C CNN "LCSC"
+	1    6700 1460
+	1    0    0    -1  
+$EndComp
+Connection ~ 6700 1360
+Wire Wire Line
+	6700 1360 6965 1360
+$Comp
+L Device:C_Small C3
+U 1 1 61DE3F9A
+P 6965 1460
+F 0 "C3" H 6915 1620 50  0000 L CNN
+F 1 "100nF" H 6875 1230 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 6965 1460 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 6965 1460 50  0001 C CNN
+F 4 "C24497" H 6965 1460 50  0001 C CNN "LCSC"
+	1    6965 1460
+	1    0    0    -1  
+$EndComp
+Connection ~ 6965 1360
+Wire Wire Line
+	6965 1360 7210 1360
+$Comp
+L Device:C_Small C4
+U 1 1 61DE469F
+P 7210 1460
+F 0 "C4" H 7160 1620 50  0000 L CNN
+F 1 "100nF" H 7120 1230 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 7210 1460 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 7210 1460 50  0001 C CNN
+F 4 "C24497" H 7210 1460 50  0001 C CNN "LCSC"
+	1    7210 1460
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6830 1625 6830 1765
+$Comp
+L Device:C_Small C7
+U 1 1 61DF9022
+P 4305 2360
+F 0 "C7" H 4330 2455 50  0000 L CNN
+F 1 "100nF" H 4315 2290 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4305 2360 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 4305 2360 50  0001 C CNN
+F 4 "C24497" H 4305 2360 50  0001 C CNN "LCSC"
+	1    4305 2360
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C5
+U 1 1 61E00CFB
+P 1955 2235
+F 0 "C5" H 1980 2330 50  0000 L CNN
+F 1 "100nF" H 2060 2240 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1955 2235 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 1955 2235 50  0001 C CNN
+F 4 "C24497" H 1955 2235 50  0001 C CNN "LCSC"
+	1    1955 2235
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C12
+U 1 1 61E09B76
+P 2985 6310
+F 0 "C12" H 3010 6405 50  0000 L CNN
+F 1 "100nF" H 2995 6240 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 2985 6310 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 2985 6310 50  0001 C CNN
+F 4 "C24497" H 2985 6310 50  0001 C CNN "LCSC"
+	1    2985 6310
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C11
+U 1 1 61E0D027
+P 1370 6295
+F 0 "C11" H 1395 6390 50  0000 L CNN
+F 1 "100nF" H 1380 6225 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 1370 6295 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810221109_Samsung-Electro-Mechanics-CL31B104KBCNNNC_C24497.pdf" H 1370 6295 50  0001 C CNN
+F 4 "C24497" H 1370 6295 50  0001 C CNN "LCSC"
+	1    1370 6295
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C10
+U 1 1 61E13CBC
+P 3675 3540
+F 0 "C10" V 3565 3540 50  0000 C CNN
+F 1 "22pF" V 3600 3350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 3675 3540 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811071223_FH-Guangdong-Fenghua-Advanced-Tech-1206CG220J500NT_C1896.pdf" H 3675 3540 50  0001 C CNN
+F 4 " C1896 " V 3675 3540 50  0001 C CNN "LCSC"
+	1    3675 3540
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:CP_Small C13
+U 1 1 61E191C3
+P 2450 6315
+F 0 "C13" H 2530 6400 50  0000 L CNN
+F 1 "10uF" H 2555 6315 50  0000 L CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-12_Kemet-S_Pad1.58x1.35mm_HandSolder" H 2450 6315 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1811151641_Sunlord-TC212A106K016Y_C108529.pdf" H 2450 6315 50  0001 C CNN
+F 4 "C108529 " H 2450 6315 50  0001 C CNN "LCSC"
+	1    2450 6315
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R3
+U 1 1 61E202DC
+P 1635 3825
+F 0 "R3" V 1560 3895 50  0000 C CNN
+F 1 "22R" V 1560 3715 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" H 1635 3825 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1810192321_YAGEO-RC1206FR-0722RL_C114943.pdf" H 1635 3825 50  0001 C CNN
+F 4 "C114943" V 1635 3825 50  0001 C CNN "LCSC"
+	1    1635 3825
+	0    1    1    0   
+$EndComp
+$Comp
+L AmigaComponents:LOGO LOGO2
+U 1 1 61DE4C48
+P 7405 5895
+F 0 "LOGO2" H 7430 5948 59  0000 L CNN
+F 1 "OSH" H 7430 5843 59  0000 L CNN
+F 2 "Symbol:OSHW-Logo_11.4x12mm_SilkScreen" H 7405 5895 59  0001 C CNN
+F 3 "" H 7405 5895 59  0001 C CNN
+	1    7405 5895
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
