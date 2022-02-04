@@ -1,4 +1,4 @@
-19076890836247253
+19077439277306253
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -76320,6 +76320,13 @@ SOT23-SOP6
 0
 6
 6
+RetroBitLab
+STM32F401-DK
+
+
+0
+64
+64
 RetroBitLab
 SULLINS_ECC07DRTN_7X2_EDGE_CONNECTOR
 
