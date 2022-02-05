@@ -1,22 +1,18 @@
-Comment,Designator,Footprint,LCSC Part #
-"100nF Unpolarized capacitor, small symbol","C1,C2,C3,C4,C5,C7,C11,C12",C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,C24497
-"10uF Polarized capacitor, small symbol","C6,C13",CP_EIA-3216-12_Kemet-S_Pad1.58x1.35mm_HandSolder,C108529 
-"4.7uF Unpolarized capacitor, small symbol",C8,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,C7237 
-"22pF Unpolarized capacitor, small symbol","C9,C10",C_1206_3216Metric_Pad1.33x1.80mm_HandSolder, C1896 
-RED Light emitting diode,D1,LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder,C93133
-100uH Ferrite bead,FB1,L_1206_3216Metric_Pad1.22x1.90mm_HandSolder,C128802
-MountingHole_Pad Mounting Hole with connection,"H1,H2,H3",MountingHole_3.2mm_M3_DIN965_Pad,
-"DEBUG UART Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)",J1,PinHeader_1x03_P2.54mm_Vertical,
-"Conn_02x16_Counter_Clockwise Generic connector, double row, 02x16, counter clockwise pin numbering scheme (similar to DIP packge numbering), script generated (kicad-library-utils/schlib/autogen/connector/)","J2,J4",PinHeader_2x16_P2.54mm_Vertical,
-USB_B_Mini USB Mini Type B connector,J3,USB_Mini-B_Lumberg_2486_01_Horizontal,C69074
-"JTAG SWDIO SWCLK Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)",J5,IDC-Header_2x05_P2.54mm_Vertical,
-OSH Any valid LOGO Images can be placed here,LOGO1,OSHW-Logo_11.4x12mm_SilkScreen,
-designed with KiCAD Any valid LOGO Images can be placed here,LOGO2,KiCad-Logo2_6mm_SilkScreen,
-"10K Resistor, small symbol",R1,R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,C17902
-"0R Resistor, small symbol",R2,R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,C17888
-"22R Resistor, small symbol","R3,R4",R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,C114943
-"330R Resistor, small symbol",R5,R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,C245520 
-"~RESET Push button switch, generic, two pins",SW1,SW_SPST_FSMSM_3D,
-"STM32F401RCT6 ARM Cortex-M4 MCU, 256KB flash, 64KB RAM, 84MHz, 1.7-3.6V, 50 GPIO, LQFP-64",U1,LQFP-64_10x10mm_P0.5mm,C74524
-"LM1117-3.3 800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220/TO-252/TO-263/SOT-223",U2,SOT-223-3_TabPin2,C126027 
-"8MHz Two pin crystal, small symbol",Y1,Crystal_SMD_HC49-SD,C107426
+"Comment","Designator","Footprint","LCSC Part #"
+"LM1117-3.3","U2","","C126027 "
+"4.7uF","C8","","C7237 "
+"~RESET","SW1","",""
+"10K","R1","","C17902"
+"10uF","C6 C13","","C108529 "
+"100uH","FB1","","C128802"
+"0R","R2","","C17888"
+"100nF","C1 C2 C3 C4 C7 C5 C12 C11","","C24497"
+"22pF","C9 C10",""," C1896 "
+"DEBUG UART","J1","",""
+"8MHz","Y1","","C107426"
+"USB_B_Mini","J3","","C69074"
+"22R","R4 R3","","C114943"
+"JTAG SWDIO SWCLK","J5","",""
+"STM32F401RCT6","U1","","C74524"
+"RED","D1","","C93133"
+"330R","R5","","C245520 "
