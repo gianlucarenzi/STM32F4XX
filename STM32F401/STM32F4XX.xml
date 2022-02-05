@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>/home/gianluca/Progetti-GIT/STM32F4XX/STM32F401/STM32F4XX.sch</source>
-    <date>Mon 10 Jan 2022 03:47:33 PM CET</date>
+    <source>/home/debian/Progetti/STM32F4XX/STM32F401/STM32F4XX.sch</source>
+    <date>Sat 05 Feb 2022 11:48:21 AM CET</date>
     <tool>Eeschema 5.1.9+dfsg1-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>GENERIC STM32F401 MODULE</title>
         <company>RetroBit Lab</company>
-        <rev>0.0</rev>
-        <date>2022-01-10</date>
+        <rev>0.2</rev>
+        <date>2022-02-05</date>
         <source>STM32F4XX.sch</source>
         <comment number="1" value=""/>
-        <comment number="2" value=""/>
-        <comment number="3" value=""/>
-        <comment number="4" value=""/>
+        <comment number="2" value="package MCU from STMicroelectronics"/>
+        <comment number="3" value="Developer's Kit to use a full STM32F401 64QFP"/>
+        <comment number="4" value="This project is aiming to be a standard"/>
       </title_block>
     </sheet>
   </design>
@@ -347,8 +347,29 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>61E202DC</tstamp>
     </comp>
+    <comp ref="LOGO1">
+      <value>OSH</value>
+      <footprint>Symbol:OSHW-Logo_11.4x12mm_SilkScreen</footprint>
+      <libsource lib="AmigaComponents" part="LOGO" description="Any valid LOGO Images can be placed here"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61DE4C48</tstamp>
+    </comp>
+    <comp ref="LOGO2">
+      <value>designed with KiCAD</value>
+      <footprint>Symbol:KiCad-Logo2_6mm_SilkScreen</footprint>
+      <libsource lib="AmigaComponents" part="LOGO" description="Any valid LOGO Images can be placed here"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62003E98</tstamp>
+    </comp>
   </components>
   <libparts>
+    <libpart lib="AmigaComponents" part="LOGO">
+      <description>Any valid LOGO Images can be placed here</description>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">LOGO</field>
+      </fields>
+    </libpart>
     <libpart lib="Connector" part="USB_B_Micro">
       <aliases>
         <alias>USB_B_Mini</alias>
@@ -687,6 +708,9 @@
     </libpart>
   </libparts>
   <libraries>
+    <library logical="AmigaComponents">
+      <uri>/home/debian/Progetti/RetroBitLab-Library/AmigaComponents.lib</uri>
+    </library>
     <library logical="Connector">
       <uri>/usr/share/kicad/library/Connector.lib</uri>
     </library>
