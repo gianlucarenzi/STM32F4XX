@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "GENERIC STM32F401 MODULE"
-Date "2022-01-11"
-Rev "0.1"
+Date "2022-02-05"
+Rev "0.2"
 Comp "RetroBit Lab"
 Comment1 ""
 Comment2 "package MCU from STMicroelectronics"
@@ -1507,14 +1507,25 @@ F 4 "C114943" V 1635 3825 50  0001 C CNN "LCSC"
 	0    1    1    0   
 $EndComp
 $Comp
-L AmigaComponents:LOGO LOGO2
+L AmigaComponents:LOGO LOGO1
 U 1 1 61DE4C48
-P 7405 5895
-F 0 "LOGO2" H 7430 5948 59  0000 L CNN
-F 1 "OSH" H 7430 5843 59  0000 L CNN
-F 2 "Symbol:OSHW-Logo_11.4x12mm_SilkScreen" H 7405 5895 59  0001 C CNN
-F 3 "" H 7405 5895 59  0001 C CNN
-	1    7405 5895
+P 7270 6060
+F 0 "LOGO1" H 7295 6113 59  0000 L CNN
+F 1 "OSH" H 7295 6008 59  0000 L CNN
+F 2 "Symbol:OSHW-Logo_11.4x12mm_SilkScreen" H 7270 6060 59  0001 C CNN
+F 3 "" H 7270 6060 59  0001 C CNN
+	1    7270 6060
+	1    0    0    -1  
+$EndComp
+$Comp
+L AmigaComponents:LOGO LOGO2
+U 1 1 62003E98
+P 7705 6105
+F 0 "LOGO2" H 7745 6210 59  0000 L CNN
+F 1 "designed with KiCAD" H 7735 6120 59  0000 L CNN
+F 2 "Symbol:KiCad-Logo2_6mm_SilkScreen" H 7705 6105 59  0001 C CNN
+F 3 "" H 7705 6105 59  0001 C CNN
+	1    7705 6105
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
