@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/debian/Progetti/STM32F4XX/STM32F401/STM32F4XX.sch</source>
-    <date>Sat 05 Feb 2022 05:47:06 PM CET</date>
+    <date>Sat 05 Feb 2022 06:13:26 PM CET</date>
     <tool>Eeschema 5.1.9+dfsg1-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -45,6 +45,9 @@
       <value>~RESET</value>
       <footprint>RetroBitLab:SW_SPST_FSMSM_3D</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="LCSC">C318911</field>
+      </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>65C0001E</tstamp>

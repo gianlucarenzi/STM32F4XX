@@ -1,14 +1,14 @@
 (export (version D)
   (design
     (source /home/debian/Progetti/STM32F4XX/STM32F401/STM32F4XX.sch)
-    (date "Sat 05 Feb 2022 10:21:34 AM CET")
+    (date "Sat 05 Feb 2022 06:06:27 PM CET")
     (tool "Eeschema 5.1.9+dfsg1-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "GENERIC STM32F401 MODULE")
         (company "RetroBit Lab")
-        (rev 0.1)
-        (date 2022-01-11)
+        (rev 0.2)
+        (date 2022-02-05)
         (source STM32F4XX.sch)
         (comment (number 1) (value ""))
         (comment (number 2) (value "package MCU from STMicroelectronics"))
@@ -37,6 +37,8 @@
       (value ~RESET)
       (footprint RetroBitLab:SW_SPST_FSMSM_3D)
       (datasheet ~)
+      (fields
+        (field (name LCSC) C318911))
       (libsource (lib Switch) (part SW_Push) (description "Push button switch, generic, two pins"))
       (sheetpath (names /) (tstamps /))
       (tstamp 65C0001E))
@@ -585,7 +587,7 @@
         (pin (num 2) (name 2) (type passive)))))
   (libraries
     (library (logical AmigaComponents)
-      (uri ${KILIBPATH}/AmigaComponents.lib))
+      (uri /home/debian/Progetti/RetroBitLab-Library/AmigaComponents.lib))
     (library (logical Connector)
       (uri /usr/share/kicad/library/Connector.lib))
     (library (logical Connector_Generic)
