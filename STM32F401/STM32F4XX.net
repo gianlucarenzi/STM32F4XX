@@ -1,14 +1,14 @@
 (export (version D)
   (design
     (source /home/debian/Progetti/STM32F4XX/STM32F401/STM32F4XX.sch)
-    (date "Sat 05 Feb 2022 06:06:27 PM CET")
+    (date "Mon 07 Feb 2022 09:16:16 AM CET")
     (tool "Eeschema 5.1.9+dfsg1-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "GENERIC STM32F401 MODULE")
         (company "RetroBit Lab")
-        (rev 0.2)
-        (date 2022-02-05)
+        (rev 0.1)
+        (date 2022-01-11)
         (source STM32F4XX.sch)
         (comment (number 1) (value ""))
         (comment (number 2) (value "package MCU from STMicroelectronics"))
@@ -35,7 +35,7 @@
       (tstamp 65BF8365))
     (comp (ref SW1)
       (value ~RESET)
-      (footprint RetroBitLab:SW_SPST_FSMSM_3D)
+      (footprint RetroBitLab:SPST-7.3x3.9x2.5-WUERTH-434121025816)
       (datasheet ~)
       (fields
         (field (name LCSC) C318911))
