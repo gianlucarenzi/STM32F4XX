@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "GENERIC STM32F401 MODULE"
-Date "2022-02-05"
-Rev "0.2"
+Date "2022-02-08"
+Rev "0.3"
 Comp "RetroBit Lab"
 Comment1 ""
 Comment2 "package MCU from STMicroelectronics"
