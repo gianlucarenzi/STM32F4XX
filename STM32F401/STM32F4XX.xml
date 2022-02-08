@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/debian/Progetti/STM32F4XX/STM32F401/STM32F4XX.sch</source>
-    <date>Sat 05 Feb 2022 06:13:26 PM CET</date>
+    <date>Tue 08 Feb 2022 08:40:20 PM CET</date>
     <tool>Eeschema 5.1.9+dfsg1-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -43,7 +43,7 @@
     </comp>
     <comp ref="SW1">
       <value>~RESET</value>
-      <footprint>RetroBitLab:SW_SPST_FSMSM_3D</footprint>
+      <footprint>RetroBitLab:SPST-7.3x3.9x2.5-WUERTH-434121025816</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="LCSC">C318911</field>
