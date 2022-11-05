@@ -4,6 +4,10 @@
   * HID bootloader for STM32F407 MCU
   *
   ******************************************************************************
+  * Modified by:
+  *		Gianluca Renzi <icjtqr@gmail.com>
+  * 
+  * Based on the work of Vassilis Serasidis
   * 
   *	Created by: Vassilis Serasidis
   *       Date: 28 June 2018
@@ -83,7 +87,7 @@ uint8_t new_data_is_received = 0;
 static uint8_t pageData[SECTOR_SIZE];
 typedef void (*funct_ptr)(void);
 
-uint32_t magic_val;
+uint32_t magic_val = 0;
 uint16_t erase_page = 1;
 
 /* USER CODE END PV */
@@ -102,6 +106,8 @@ extern uint8_t USBD_CUSTOM_HID_SendReport(USBD_HandleTypeDef *pdev, uint8_t *rep
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
+
+__weak int ask_for_bootloader(void) { return 0; }
 
 /**
   * @brief  The application entry point.
@@ -133,11 +139,19 @@ int main(void)
    
   HAL_Delay(100);
   
-  magic_val = LL_RTC_BAK_GetRegister(RTC, HID_MAGIC_NUMBER_BKP_INDEX);
+  /* Enable Power Clock */
+  __HAL_RCC_PWR_CLK_ENABLE();
   
-  /* In case of incoming magic number or <BOOT_1_PIN> is LOW,
-    jump to HID bootloader */
-  if ((magic_val != 0x424C)&&(HAL_GPIO_ReadPin(BOOT_1_PORT, BOOT_1_PIN) != BOOT_1_ENABLED)) {
+  /* USER CODE END SysInit */
+  
+  /* Initialize all configured peripherals */
+
+
+  /* In case of SIMULTANEOUS PRESS OF:
+   * ESC + LCTRL + SPACEBAR 
+   */
+  magic_val = ask_for_bootloader();
+  if ((magic_val != 0)) {
     typedef void (*pFunction)(void);
     pFunction Jump_To_Application;
     uint32_t JumpAddress;
@@ -147,23 +161,6 @@ int main(void)
     __set_MSP(*(uint32_t *) (FLASH_BASE + USER_CODE_OFFSET));
     Jump_To_Application(); 
   }
-  
-  /* Reset the magic number backup memory */
-  
-  /* Enable Power Clock */
-  __HAL_RCC_PWR_CLK_ENABLE();
-  
-  /* Allow access to Backup domain */
-  LL_PWR_EnableBkUpAccess();
-  
-  LL_RTC_BAK_SetRegister(RTC, HID_MAGIC_NUMBER_BKP_INDEX, 0);
-  
-  /* Forbid access to Backup domain */
-  LL_PWR_DisableBkUpAccess();
-  
-  /* USER CODE END SysInit */
-  
-  /* Initialize all configured peripherals */
   
   MX_USB_DEVICE_Init();
 
