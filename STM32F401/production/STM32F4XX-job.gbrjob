@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "5.1.9+dfsg1-1"
+      "Version":     "5.1.9+dfsg1-1+deb11u1"
     },
-    "CreationDate":  "2022-02-08T20:36:35+01:00"
+    "CreationDate":  "2023-02-15T23:18:43+01:00"
   },
   "GeneralSpecs":
   {
@@ -15,7 +15,7 @@
     {
       "Name": "STM32F4XX",
       "GUID": "53544d33-3246-4345-9858-2e6b69636164",
-      "Revision": "2.0"
+      "Revision": "0.4"
     },
     "Size":
     {
