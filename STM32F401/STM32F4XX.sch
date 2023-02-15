@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "GENERIC STM32F401 MODULE"
-Date "2022-02-08"
-Rev "0.3"
+Date "2023-02-15"
+Rev "0.4"
 Comp "RetroBit Lab"
 Comment1 ""
 Comment2 "package MCU from STMicroelectronics"
@@ -527,9 +527,9 @@ F 3 "" H 9750 1305 50  0001 C CNN
 	1    9750 1305
 	1    0    0    -1  
 $EndComp
-Text Label 9950 1290 3    50   ~ 0
-USART2_TX
 Text Label 10050 1290 3    50   ~ 0
+USART2_TX
+Text Label 9950 1290 3    50   ~ 0
 USART2_RX
 Wire Wire Line
 	9850 1290 9750 1290
@@ -1296,9 +1296,9 @@ USART2_RX
 Text GLabel 10845 1555 2    50   Input ~ 0
 A3
 Text GLabel 2570 4210 2    50   Input ~ 0
-A11
-Text GLabel 2570 4310 2    50   Input ~ 0
 A12
+Text GLabel 2570 4310 2    50   Input ~ 0
+A11
 Text Label 2325 4210 2    39   ~ 0
 USB_OTG_FS_DP
 Text Label 2325 4310 2    39   ~ 0
