@@ -43,34 +43,16 @@ static void MX_USART2_UART_Init(int baudrate);
 #define STM32_DFU_ROM_CODE 0x1FFF0000
 #define BOOTLOADER_SIZE    0x4000 /* 16K Bootloader size */
 
-#define BOOT_1_PIN      GPIO_PIN_1 //STALKER V2 BOARD: PC1
+/* LED GPIOA0, BOOTMODE GPIOC1 */
+#define BOOT_1_PIN      GPIO_PIN_1
 #define BOOT_1_PORT     GPIOC
 #define BOOT_1_ENABLED  GPIO_PIN_RESET
 #define LED_1_PIN       GPIO_PIN_0
 #define LED_1_PORT      GPIOA
 
+/* Prototypes */
 static int ask_for_bootloader(void);
 static void banner(void);
-static void amiga_reset(void);
-
-/**
- * @brief Keep Amiga in reset state during update
- * @retval None
- */
-static void amiga_reset(void)
-{
-	GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-	/*Configure GPIO pin Output Level BOOT_1_PIN as low */
-	HAL_GPIO_WritePin(BOOT_1_PORT, BOOT_1_PIN, GPIO_PIN_RESET);
-
-	/*Configure GPIO pin as output: PC1 - AMIGA RESET J8 */
-	GPIO_InitStruct.Pin = BOOT_1_PIN;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_PULLUP; /* Due to a short circuit tied to gnd an internal pullup is needed */
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(BOOT_1_PORT, &GPIO_InitStruct);
-}
 
 static void banner(void)
 {
@@ -147,7 +129,7 @@ static void mdump(uint32_t offset, uint32_t size)
   * @brief  The USB Bootloader.
   * @retval never reached
   * 
-  * Tie the Amiga Reset Pin to ground for at least 1 second during
+  * Press Boot button to ground for at least 1 second during
   * powerup to enter into the bootloader mode, otherwise it will jump
   * to user application.
   * 
@@ -178,10 +160,9 @@ int main(void)
 	banner();
 
 	bootmode = ask_for_bootloader();
-	/* Now we need to reconfigure pin as output, as well as the Amiga needs
-	 * to be in reset mode during all upgrade (if connected)
-	 */
-	amiga_reset();
+
+	/* Bootmode can be for a magic value in eeprom from application */
+	
 
 	if ( !bootmode ) {
 		DBG_I("NFU\r\n");
