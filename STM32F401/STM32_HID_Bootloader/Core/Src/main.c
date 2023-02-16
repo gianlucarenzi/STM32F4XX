@@ -161,9 +161,6 @@ int main(void)
 
 	bootmode = ask_for_bootloader();
 
-	/* Bootmode can be for a magic value in eeprom from application */
-	
-
 	if ( !bootmode ) {
 		DBG_I("NFU\r\n");
 		/*
