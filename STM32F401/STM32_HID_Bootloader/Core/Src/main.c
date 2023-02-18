@@ -18,13 +18,14 @@
 #include "main.h"
 #include "syscall.h"
 #include "debug.h"
+#include "stm32f4xx_it.h" /* For linker variables */
 
 /* From Linker file */
 extern uint32_t _estack;
 
 /* Local variables */
 static int debuglevel = DBG_INFO;
-static const char *fwBuild = "v0.2 BUILD: " __TIME__ "-" __DATE__;
+static const char *fwBuild = "v0.3 BUILD: " __TIME__ "-" __DATE__;
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart2;
@@ -35,13 +36,12 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(int baudrate);
 
 /*
- * Reads NUM_SAMPLES and manage the average
+ * Reads NUM_SAMPLES and manage the average within 1 second
  */
 #define NUM_SAMPLES 10
 #define WAIT_MS (1000L / NUM_SAMPLES)
 
 #define STM32_DFU_ROM_CODE 0x1FFF0000
-#define BOOTLOADER_SIZE    0x4000 /* 16K Bootloader size */
 
 /* LED GPIOA0, BOOTMODE GPIOC1 */
 #define BOOT_1_PIN      GPIO_PIN_1
@@ -103,12 +103,16 @@ static inline int check_valid_application(uint32_t jumpAddress, uint32_t stackAd
 {
 	int ram_is_valid = 0;
 	int flash_is_valid = 0;
+	uint32_t appflash_start = (uint32_t) &__appflash_start;
+	uint32_t appflash_end = (uint32_t) &__appflash_end;
+	uint32_t ram_start = (uint32_t) &__ram_start;
+	uint32_t ram_end = (uint32_t) &__ram_end;
 
-	DBG_N("ApplicationAddressSpace = 0x%08lX -- FLASH_BASE: 0x%08lX\r\n", jumpAddress, FLASH_BASE);
-	DBG_N("ApplicationRAMSpace     = 0x%08lX -- SRAM_BASE: 0x%08lX\r\n", stackAddress, SRAM_BASE);
+	DBG_N("ApplicationAddressSpace = 0x%08lX -- APPFLASH_BASE: 0x%08lX\r\n", jumpAddress, appflash_start);
+	DBG_N("ApplicationRAMSpace     = 0x%08lX -- SRAM_BASE: 0x%08lX\r\n", stackAddress, ram_start);
 
-	ram_is_valid = stackAddress >= SRAM_BASE && stackAddress <= (SRAM_BASE + 0x10000);
-	flash_is_valid = jumpAddress >= (FLASH_BASE + BOOTLOADER_SIZE) && jumpAddress < FLASH_END;
+	ram_is_valid = stackAddress >= ram_start && stackAddress <= ram_end;
+	flash_is_valid = jumpAddress >= appflash_start && jumpAddress < appflash_end;
 
 	DBG_N("RIV: %d -- FIV: %d\r\n", ram_is_valid, flash_is_valid);
 
@@ -116,20 +120,11 @@ static inline int check_valid_application(uint32_t jumpAddress, uint32_t stackAd
 	return (ram_is_valid && flash_is_valid);
 }
 
-static void mdump(uint32_t offset, uint32_t size)
-{
-	for (uint32_t reg = 0; reg < (size * 4); reg = reg + 4)
-	{
-		uint32_t regval = *(__IO uint32_t *) (offset + reg);
-		printf("[%02ld] 0x%08lX\r\n", reg, regval);
-	}
-}
-
 /**
-  * @brief  The USB Bootloader.
+  * @brief  The USB DFU Bootloader.
   * @retval never reached
   * 
-  * Press Boot button to ground for at least 1 second during
+  * Press Boot GPIOC1 to ground for at least 1 second during
   * powerup to enter into the bootloader mode, otherwise it will jump
   * to user application.
   * 
@@ -212,18 +207,21 @@ int main(void)
 		 * valid flash address (FLASH_BASE + BOOTLOADER_SIZE + FLASH_SIZE)
 		 *
 		 */
-		JumpAddress = *(__IO uint32_t*) (FLASH_BASE + BOOTLOADER_SIZE + 4);
-		StackAddress = *(__IO uint32_t*) (FLASH_BASE + BOOTLOADER_SIZE + 0);
+		uint32_t *appflash_start;
+		appflash_start = (uint32_t *) &__appflash_start;
+
+		/* First word value is the stack pointer address */
+		StackAddress = *(appflash_start + 0);
+		/* Second word value is the reset handler jump address */
+		JumpAddress  = *(appflash_start + 1);
 
 		if (check_valid_application(JumpAddress, StackAddress)) {
 
 			Jump_To_Application = (pFunction) JumpAddress;
 
-			/* Set the vector table */
-			SCB->VTOR = FLASH_BASE + BOOTLOADER_SIZE;
-
-			uint32_t msp_value = *(__IO uint32_t *) (FLASH_BASE + BOOTLOADER_SIZE);
-
+			/* Set the vector table entries */
+			uint32_t msp_value = StackAddress;
+			SCB->VTOR = JumpAddress;
 			/* Set the STACK POINTER to the Application space */
 			__set_MSP(msp_value);
 			Jump_To_Application();
