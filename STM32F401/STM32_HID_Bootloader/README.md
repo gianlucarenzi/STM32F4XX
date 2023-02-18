@@ -27,7 +27,7 @@ The application must reside into the memory flash regions from 0x08004000 up to 
 These information must be taken into account when programming any custom application and they should be defined in the GNU linker script file.
 
 For example:
-
+```c
 /* For a 128K based flash size device */
 _MCU_FLASH_SIZE_ = 0x20000;
 
@@ -47,12 +47,12 @@ __appflash_start = ORIGIN(FLASH);
 __appflash_end = ORIGIN(FLASH) + LENGTH(FLASH);
 __ram_start = ORIGIN(RAM);
 __ram_end = ORIGIN(RAM) + LENGTH(RAM);
-
+```
 The BOOT area is here *for reference ONLY* as this should not be used by application itself.
 
 The application in the SystemInit() section *MUST* have those initialization to be correct on running in a different memory space than the classic 0x08000000 area.
 This function is usually located into the system_stm32f4xx.c file:
-
+```c
 extern uint32_t *__appflash_start; /* Defined by the GNU linker script */
 
 void SystemInit(void)
@@ -61,7 +61,7 @@ void SystemInit(void)
  ...
  SCB->VTOR = (uint32_t) &__appflash_start;
 }
-
+```
 In this way the application can run from a different flash memory address as the code is already relocated into the right segments by the GNU linker script.
 
 ## Programming application/Firmware Update
