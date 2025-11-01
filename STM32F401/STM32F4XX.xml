@@ -65,14 +65,14 @@
     <comp ref="LOGO1">
       <value>OSH</value>
       <footprint>Symbol:OSHW-Logo_11.4x12mm_SilkScreen</footprint>
-      <libsource lib="AmigaComponents" part="LOGO" description="Any valid LOGO Images can be placed here"/>
+      <libsource lib="RetroBitLab" part="LOGO" description="Any valid LOGO Images can be placed here"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>61DE4C48</tstamp>
     </comp>
     <comp ref="LOGO2">
       <value>designed with KiCAD</value>
       <footprint>Symbol:KiCad-Logo2_6mm_SilkScreen</footprint>
-      <libsource lib="AmigaComponents" part="LOGO" description="Any valid LOGO Images can be placed here"/>
+      <libsource lib="RetroBitLab" part="LOGO" description="Any valid LOGO Images can be placed here"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>62003E98</tstamp>
     </comp>
@@ -259,7 +259,7 @@
         <field name="STANDARD">Manufacturer Recommendations</field>
         <field name="SnapEDA_Link">https://www.snapeda.com/parts/DX07S016JA1R1500/JAE+Electronics/view-part/?ref=snap</field>
       </fields>
-      <libsource lib="AmigaComponents" part="DX07S016JA1R1500" description="USB C Receptacle"/>
+      <libsource lib="RetroBitLab" part="DX07S016JA1R1500" description="USB C Receptacle"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6905C807</tstamp>
     </comp>
@@ -391,7 +391,7 @@
       <fields>
         <field name="LCSC">C492446</field>
       </fields>
-      <libsource lib="AmigaComponents" part="CONN_SMD_HEADER_BOX_02x05_Odd_Even_2.54mm" description="2.54mm -40℃~+105℃ 3A 2x5P 250V 5 2 IDC Header 2.54mm Surface Mount,Vertical SMD,P=2.54mm Free Hanging, Panel Mount RoHS"/>
+      <libsource lib="RetroBitLab" part="CONN_SMD_HEADER_BOX_02x05_Odd_Even_2.54mm" description="2.54mm -40℃~+105℃ 3A 2x5P 250V 5 2 IDC Header 2.54mm Surface Mount,Vertical SMD,P=2.54mm Free Hanging, Panel Mount RoHS"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>6907C8E5</tstamp>
     </comp>
@@ -402,7 +402,7 @@
       <fields>
         <field name="LCSC">C6186</field>
       </fields>
-      <libsource lib="AmigaComponents" part="AMS1117-3.3" description="72dB@(120Hz) 1A Fixed 3.3V Positive 16V SOT-223 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS"/>
+      <libsource lib="RetroBitLab" part="AMS1117-3.3" description="72dB@(120Hz) 1A Fixed 3.3V Positive 16V SOT-223 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>69067808</tstamp>
     </comp>
@@ -419,7 +419,7 @@
     </comp>
   </components>
   <libparts>
-    <libpart lib="AmigaComponents" part="AMS1117-3.3">
+    <libpart lib="RetroBitLab" part="AMS1117-3.3">
       <description>72dB@(120Hz) 1A Fixed 3.3V Positive 16V SOT-223 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS</description>
       <docs>https://www.lcsc.com/datasheet/C6186.pdf</docs>
       <fields>
@@ -434,7 +434,7 @@
         <pin num="3" name="VI" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="AmigaComponents" part="CONN_SMD_HEADER_BOX_02x05_Odd_Even_2.54mm">
+    <libpart lib="RetroBitLab" part="CONN_SMD_HEADER_BOX_02x05_Odd_Even_2.54mm">
       <description>2.54mm -40℃~+105℃ 3A 2x5P 250V 5 2 IDC Header 2.54mm Surface Mount,Vertical SMD,P=2.54mm Free Hanging, Panel Mount RoHS</description>
       <docs>https://www.lcsc.com/datasheet/C492446.pdf</docs>
       <footprints>
@@ -459,7 +459,7 @@
         <pin num="10" name="Pin_10" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="AmigaComponents" part="DX07S016JA1R1500">
+    <libpart lib="RetroBitLab" part="DX07S016JA1R1500">
       <description>USB C Receptacle</description>
       <fields>
         <field name="Reference">J</field>
@@ -500,7 +500,7 @@
         <pin num="S6" name="SHIELD" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="AmigaComponents" part="LOGO">
+    <libpart lib="RetroBitLab" part="LOGO">
       <description>Any valid LOGO Images can be placed here</description>
       <fields>
         <field name="Reference">L</field>
@@ -855,8 +855,8 @@
     </libpart>
   </libparts>
   <libraries>
-    <library logical="AmigaComponents">
-      <uri>/home/gianluca/Progetti/RetroBitLab-Library/AmigaComponents.lib</uri>
+    <library logical="RetroBitLab">
+      <uri>/home/gianluca/Progetti/RetroBitLab-Library/RetroBitLab.lib</uri>
     </library>
     <library logical="CCAP0603">
       <uri>/home/gianluca/Progetti/RetroBitLab-Library/CCAP0603.lib</uri>
