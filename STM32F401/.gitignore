@@ -1,3 +1,4 @@
 *.csv.backup_*
 *.kicad_pcb.backup_*
 *report*.txt
+/STM32F4XX-cache.lib
