@@ -2,3 +2,6 @@
 *.kicad_pcb.backup_*
 *report*.txt
 /STM32F4XX-cache.lib
+/STM32F4XX-v*-JLCPCB-BOM.csv
+/STM32F4XX-v*-JLCPCB-CPL.csv
+/STM32F4XX-v*.zip
