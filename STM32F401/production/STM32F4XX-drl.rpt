@@ -1,5 +1,5 @@
-Drill report for /home/debian/Progetti/STM32F4XX/STM32F401/STM32F4XX.kicad_pcb
-Created on Wed 15 Feb 2023 11:18:53 PM CET
+Drill report for /home/gianluca/Progetti-CVS/STM32F4XX/STM32F401/STM32F4XX.kicad_pcb
+Created on Mon 03 Nov 2025 12:09:55 PM CET
 
 Copper Layer Stackup:
     =============================================================
@@ -10,16 +10,18 @@ Copper Layer Stackup:
 Drill file 'STM32F4XX-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.40mm  0.016"  (42 holes)
-    T2  1.00mm  0.039"  (77 holes)
-    T3  3.20mm  0.126"  (3 holes)
+    T1  0.40mm  0.016"  (102 holes)
+    T2  0.65mm  0.026"  (4 holes)  (with 4 slots)
+    T3  1.00mm  0.039"  (5 holes)
+    T4  3.20mm  0.126"  (4 holes)
 
-    Total plated holes count 122
+    Total plated holes count 115
 
 
 Drill file 'STM32F4XX-NPTH.drl' contains
     unplated through holes:
     =============================================================
-    T1  1.00mm  0.039"  (2 holes)
+    T1  0.60mm  0.024"  (1 hole)
+    T2  0.63mm  0.025"  (2 holes)
 
-    Total unplated holes count 2
+    Total unplated holes count 3
