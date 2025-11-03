@@ -200,6 +200,8 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+	cp $(BUILD_DIR)/$(TARGET).elf firmware/$(TARGET).elf
+	cp $(BUILD_DIR)/$(TARGET).hex firmware/$(TARGET).hex
 
 
 #######################################
