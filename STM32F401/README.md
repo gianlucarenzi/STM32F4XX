@@ -14,7 +14,7 @@ This project provides a development board for the STM32F401RCT6 microcontroller 
 *   USB-C connector for power and data
 *   SWD connector for programming and debugging
 *   Reset button
-*   BOOT0 button
+*   JP1 jumper (for DFU mode)
 *   User LED
 *   Power LED
 *   Expansion headers for all MCU pins
