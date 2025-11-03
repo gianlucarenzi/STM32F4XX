@@ -1,0 +1,3 @@
+*.csv.backup_*
+*.kicad_pcb.backup_*
+*report*.txt
