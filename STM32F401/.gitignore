@@ -5,3 +5,6 @@
 /STM32F4XX-v*-JLCPCB-BOM.csv
 /STM32F4XX-v*-JLCPCB-CPL.csv
 /STM32F4XX-v*.zip
+/STM32F4XX.csv
+/STM32F4XX_cpl_bot.csv
+/STM32F4XX_cpl_top.csv
