@@ -25,7 +25,7 @@ extern uint32_t _estack;
 
 /* Local variables */
 static int debuglevel = DBG_INFO;
-static const char *fwBuild = "v0.3 BUILD: " __TIME__ "-" __DATE__;
+static const char *fwBuild = "v0.4 BUILD: " __TIME__ "-" __DATE__;
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart2;
@@ -221,6 +221,7 @@ int main(void)
 
 			/* Set the vector table entries */
 			uint32_t msp_value = StackAddress;
+			__disable_irq(); // Disable all interrupts before jumping to application
 			SCB->VTOR = JumpAddress;
 			/* Set the STACK POINTER to the Application space */
 			__set_MSP(msp_value);
