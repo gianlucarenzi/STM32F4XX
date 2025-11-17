@@ -37,7 +37,7 @@ typedef void (*pFunction)(void);
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define APPLICATION_NAME "STALKER"
+#define APPLICATION_NAME "RetroBitLab DFU"
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -61,7 +61,7 @@ static int application_is_valid(void);
 static void application_run(void);
 static void print_startup_banner(void);
 static void show_dfu_mode(int use_dfu);
-static void amiga_reset(void);
+static void panic(void);
 /* USER CODE END PFP */
 
 /* Public function prototypes -------------------------------------------------*/
@@ -77,7 +77,6 @@ __attribute__((weak)) void custom_setup_early(void)
 __attribute__((weak)) void custom_setup_late(void) 
 {
 	/* Do something useful here for your custom hardware */
-	amiga_reset();
 }
 
 /* USER CODE END 0 */
@@ -198,6 +197,7 @@ static void jump_to_dfu_bootloader(void)
 	{
 		// Error: DFU jump failed or returned
 		PRINT_ERROR("DFU jump failed or returned!\r\n");
+		panic();
 	}
 }
 
@@ -253,6 +253,7 @@ static void application_run(void)
 	{
 		// Error: Application jump failed or returned
 		PRINT_ERROR("Application jump failed or returned!\r\n");
+		panic();
 	}
 }
 
@@ -274,27 +275,21 @@ static void show_dfu_mode(int use_dfu)
 	PRINT_INFO("----------------------------------------\r\n");
 }
 
-/**
- * @brief Keep Amiga in reset state during update
- * @retval None
- */
-static void amiga_reset(void)
+#define PANIC_BLINK_RATE 500000L
+static void panic(void)
 {
-	/* Configure AMIGA RESET as output after checking the bootloader
-	 * user request
-	 */
-	GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-	/*Configure GPIO pin Output Level BOOT_MODE_Pin / AMIGA RESET as low */
-	HAL_GPIO_WritePin(BOOT_MODE_GPIO_Port, BOOT_MODE_Pin, GPIO_PIN_RESET);
-
-	/*Configure GPIO pin as output: PC1 - AMIGA RESET J8 */
-	GPIO_InitStruct.Pin = BOOT_MODE_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_PULLUP; /* Due to a short circuit tied to gnd an internal pullup is needed */
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(BOOT_MODE_GPIO_Port, &GPIO_InitStruct);
-	PRINT_INFO("Amiga now it's in RESET state\r\n");
+	int j;
+	/* USER CODE END WHILE */
+	HAL_GPIO_WritePin(LED_PIN_GPIO_Port, LED_PIN_Pin, GPIO_PIN_RESET);
+	for(j=0; j < PANIC_BLINK_RATE; j++)
+	{
+		;;
+	}
+	HAL_GPIO_WritePin(LED_PIN_GPIO_Port, LED_PIN_Pin, GPIO_PIN_SET);
+	for(j=0; j < PANIC_BLINK_RATE; j++)
+	{
+		;;
+	}
 }
 
 /* USER CODE END 4 */
@@ -358,11 +353,11 @@ int main(void)
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
-		/* USER CODE END WHILE */
-
 		/* USER CODE BEGIN 3 */
+		panic();
+		/* USER CODE END 3 */
 	}
-	/* USER CODE END 3 */
+	/* USER CODE END WHILE */
 }
 
 /**
