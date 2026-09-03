@@ -7,6 +7,30 @@ LOCAL_UTILS_DIR="$(pwd)/utilities"
 EEPLOT_SRC_DIR="eeplot-src" # Relative path for source
 EEPLOT_EXEC="${LOCAL_UTILS_DIR}/bin/eeplot"
 EESHOW_EXEC="${LOCAL_UTILS_DIR}/bin/eeshow" # Assuming eeshow is also built
+EEPLOT_PATCH="$(pwd)/patches/eeplot-page-size.patch"
+
+# Applies our local fix (each schematic sheet keeps its own PDF page size
+# and is drawn flush with its own origin, instead of every page being
+# forced to the size of the largest sheet and left anchored top-left).
+# Safe to call again: it detects an already-applied patch and skips it.
+apply_eeplot_patches() {
+    [ -f "${EEPLOT_PATCH}" ] || return 0
+    if (cd "${EEPLOT_SRC_DIR}" && git apply --check "${EEPLOT_PATCH}" 2>/dev/null); then
+        echo "Applying local patch: $(basename "${EEPLOT_PATCH}")"
+        (cd "${EEPLOT_SRC_DIR}" && git apply "${EEPLOT_PATCH}") || {
+            echo "ERROR: failed to apply ${EEPLOT_PATCH}."
+            exit 1
+        }
+    elif (cd "${EEPLOT_SRC_DIR}" && git apply --check --reverse "${EEPLOT_PATCH}" 2>/dev/null); then
+        echo "Local patch $(basename "${EEPLOT_PATCH}") already applied, skipping."
+    else
+        echo "--------------------------------------------------------------------"
+        echo "ERROR: ${EEPLOT_PATCH} does not apply cleanly to ${EEPLOT_SRC_DIR}."
+        echo "The upstream eeplot source may have changed; the patch needs a refresh."
+        echo "--------------------------------------------------------------------"
+        exit 1
+    fi
+}
 
 # Check if eeplot is already installed locally
 if [ -f "${EEPLOT_EXEC}" ]; then
@@ -14,7 +38,7 @@ if [ -f "${EEPLOT_EXEC}" ]; then
 elif [ -d "${EEPLOT_SRC_DIR}" ]; then
     echo "--- eeplot source found. Updating and rebuilding. ---"
     # 1. Check for system dependencies (still needed for rebuilds)
-            echo "[1/4] Checking system dependencies..."
+            echo "[1/5] Checking system dependencies..."
             if ! dpkg -s libgit2-dev >/dev/null 2>&1; then
                 echo "--------------------------------------------------------------------"
                 echo "ERROR: System dependency 'libgit2-dev' not found."
@@ -26,17 +50,21 @@ elif [ -d "${EEPLOT_SRC_DIR}" ]; then
     echo "Dependencies OK."
 
     # 2. Update source
-    echo "[2/4] Updating eeplot source (git pull)..."
+    echo "[2/5] Updating eeplot source (git pull)..."
     (cd "${EEPLOT_SRC_DIR}" && git pull) || { echo "ERROR: git pull failed."; exit 1; }
 
-    # 3. Compile
-    echo "[3/4] Compiling eeplot..."
+    # 3. Apply local patches
+    echo "[3/5] Applying local patches..."
+    apply_eeplot_patches
+
+    # 4. Compile
+    echo "[4/5] Compiling eeplot..."
     if ! make -C "${EEPLOT_SRC_DIR}"; then
         echo "ERROR: Compilation (make) failed during update."
         exit 1
     fi
 
-    # 4. Install locally (manual copy)
+    # 5. Install locally (manual copy)
     cp "${EEPLOT_SRC_DIR}/eeplot" "${LOCAL_UTILS_DIR}/bin/" || { echo "ERROR: Copy 'eeplot' failed."; exit 1; }
     if [ -f "${EEPLOT_SRC_DIR}/eeshow" ]; then
         cp "${EEPLOT_SRC_DIR}/eeshow" "${LOCAL_UTILS_DIR}/bin/" || { echo "ERROR: Copy 'eeshow' failed."; exit 1; }
@@ -45,7 +73,7 @@ elif [ -d "${EEPLOT_SRC_DIR}" ]; then
 else
     echo "--- eeplot not found locally. Starting one-time setup procedure ---"
     # 1. Check for system dependencies
-    echo "[1/5] Checking system dependencies..."
+    echo "[1/6] Checking system dependencies..."
     if ! dpkg -s libgit2-dev >/dev/null 2>&1; then
         echo "--------------------------------------------------------------------"
         echo "ERRORE: Dipendenza di sistema 'libgit2-dev' non trovata."
@@ -57,31 +85,35 @@ else
     echo "Dependencies OK."
 
     # 2. Clone the repository
-    echo "[2/5] Cloning eeplot repository..."
+    echo "[2/6] Cloning eeplot repository..."
     # rm -rf "${EEPLOT_SRC_DIR}" # Not needed here, as we are in the 'else' branch, meaning it doesn't exist
     if ! git clone https://github.com/DavidWKnight/eeshow-Kicad5-eeplot.git "${EEPLOT_SRC_DIR}"; then
         echo "ERROR: Unable to clone repository. Check connection or URL."
         exit 1
     fi
 
-    # 3. Compile
-    echo "[3/5] Compiling eeplot..."
+    # 3. Apply local patches
+    echo "[3/6] Applying local patches..."
+    apply_eeplot_patches
+
+    # 4. Compile
+    echo "[4/6] Compiling eeplot..."
     if ! make -C "${EEPLOT_SRC_DIR}"; then
         echo "ERROR: Compilation (make) failed."
         rm -rf "${EEPLOT_SRC_DIR}"
         exit 1
     fi
 
-    # 4. Install locally (manual copy due to make install issues)
-    echo "[4/5] Installing eeplot into ${LOCAL_UTILS_DIR} (manual copy)..."
+    # 5. Install locally (manual copy due to make install issues)
+    echo "[5/6] Installing eeplot into ${LOCAL_UTILS_DIR} (manual copy)..."
     mkdir -p "${LOCAL_UTILS_DIR}/bin"
     cp "${EEPLOT_SRC_DIR}/eeplot" "${LOCAL_UTILS_DIR}/bin/" || { echo "ERROR: Copy 'eeplot' failed."; exit 1; }
     if [ -f "${EEPLOT_SRC_DIR}/eeshow" ]; then
         cp "${EEPLOT_SRC_DIR}/eeshow" "${LOCAL_UTILS_DIR}/bin/" || { echo "ERROR: Copy 'eeshow' failed."; exit 1; }
     fi
 
-    # 5. Cleanup
-    echo "[5/5] Cleaning up source files..."
+    # 6. Cleanup
+    echo "[6/6] Cleaning up source files..."
     rm -rf "${EEPLOT_SRC_DIR}"
 
     echo "--- eeplot installation complete. ---"
